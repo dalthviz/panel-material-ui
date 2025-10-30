@@ -1,10 +1,13 @@
 import Box from "@mui/material/Box"
 import FormControl from "@mui/material/FormControl"
 import FormLabel from "@mui/material/FormLabel"
+import Grid from '@mui/material/Grid';
 import IconButton from "@mui/material/IconButton"
 import InputAdornment from "@mui/material/InputAdornment"
 import RemoveIcon from "@mui/icons-material/Remove"
 import AddIcon from "@mui/icons-material/Add"
+import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp'
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
 import Slider from "@mui/material/Slider"
 import TextField from "@mui/material/TextField"
 import Typography from "@mui/material/Typography"
@@ -246,19 +249,23 @@ export function render({model, el, view}) {
               InputProps={{
                 disableUnderline: true,
                 sx: {ml: "0.5em", mt: "0.2em"},
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <IconButton onClick={(e) => { increment(0, -1); e.stopPropagation(); e.preventDefault(); }} size="small" color="default" sx={{p: 0}}>
-                      <RemoveIcon fontSize="small" />
-                    </IconButton>
-                  </InputAdornment>
-                ),
                 endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton onClick={(e) => { increment(0, 1); e.stopPropagation(); e.preventDefault(); }} size="small" color="default" sx={{p: 0}}>
-                      <AddIcon fontSize="small" />
-                    </IconButton>
-                  </InputAdornment>
+                  <Grid container>
+                    <Grid size={12}>
+                      <InputAdornment position="start">
+                        <IconButton onClick={(e) => { increment(0, -1); e.stopPropagation(); e.preventDefault(); }} size="small" color="default" sx={{p: 0}}>
+                          <ArrowDropUpIcon fontSize="small" />
+                        </IconButton>
+                      </InputAdornment>
+                    </Grid>
+                    <Grid size={12}>
+                      <InputAdornment position="end">
+                        <IconButton onClick={(e) => { increment(0, 1); e.stopPropagation(); e.preventDefault(); }} size="small" color="default" sx={{p: 0}}>
+                          <ArrowDropDownIcon fontSize="small" />
+                        </IconButton>
+                      </InputAdornment>
+                    </Grid>
+                  </Grid>
                 ),
               }}
             />
